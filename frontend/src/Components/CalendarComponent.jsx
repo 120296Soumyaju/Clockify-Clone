@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
 import { Eventcalendar, getJson } from "@mobiscroll/react";
 
@@ -54,4 +54,40 @@ function CalendarComponent() {
   );
 }
 
+export default CalendarComponent;*/
+
+import React, { useState, useEffect } from "react";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+
+function CalendarComponent() {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    fetch("https://trial.mobiscroll.com/events/?vers=5")
+      .then((response) => response.json())
+      .then((data) => {
+        const formattedEvents = data.map((event) => ({
+          title: event.text,
+          start: event.start,
+          end: event.end,
+        }));
+        setEvents(formattedEvents);
+      })
+      .catch((error) => console.error("Error fetching events:", error));
+  }, []);
+
+  return (
+    <div style={{ width: "100%", height: "500px" }}>
+      <FullCalendar
+        plugins={[dayGridPlugin]}
+        initialView="dayGridMonth"
+        events={events}
+        height="500px"
+      />
+    </div>
+  );
+}
+
 export default CalendarComponent;
+

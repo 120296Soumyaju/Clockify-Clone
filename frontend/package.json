@@ -13,24 +13,27 @@
     "@chakra-ui/react": "^2.2.8",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
-    "@mobiscroll/react": "https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-5.18.2.tgz",
-    "axios": "^0.27.2",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/react": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
+    "axios": "^1.8.1",
     "framer-motion": "^7.2.0",
     "react": "^18.2.0",
-    "react-chat-window": "^1.2.1",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.3.5",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scroll": "^1.8.7",
+    "react-simple-chatbot": "^0.5.0",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^2.0.1",
-    "vite": "^3.0.7"
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.2.0"
   }
 }
