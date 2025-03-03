@@ -1,3 +1,3 @@
 
 node_modules/
-.envbackend/Config/google_auth.js
+.env
