@@ -10,6 +10,11 @@ import {
   SIGNUP_SUCCESS,
 } from "./auth.actionTypes";
 
+// Load backend URL from environment variables
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
+
+
 export const signup_succ = (data) => ({
   type: SIGNUP_SUCCESS,
   payload: data,
@@ -39,33 +44,28 @@ export const login_req = () => ({
 export const SignupGet = (email, password) => (dispatch) => {
   console.log(email, password);
   dispatch(signup_req());
-  return axios({
-    method: "post",
-    url: "https://pure-cliffs-12633.herokuapp.com/signup",
-    data: {
-      email: email,
-      password: password,
-    },
-  })
+  return axios
+    .post(`${API_BASE_URL}/signup`, {
+      email,
+      password,
+    })
     .then((res) => {
       console.log(res);
       dispatch(signup_succ(res.data));
     })
     .catch((err) => {
       console.log(err);
+      dispatch(signup_fail());
     });
 };
 export const LoginGet = (email, password) => (dispatch) => {
   console.log(email, password);
   dispatch(login_req());
-  return axios({
-    method: "post",
-    url: "https://pure-cliffs-12633.herokuapp.com/login",
-    data: {
-      email: email,
-      password: password,
-    },
-  })
+  return axios
+    .post(`${API_BASE_URL}/login`, {
+      email,
+      password,
+    })
     .then((res) => {
       dispatch(login_succ(res.data));
     })
