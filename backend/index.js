@@ -1,5 +1,6 @@
 const PORT = process.env.PORT || 3000; // Use default if not provided
 const express = require("express");
+const mongoose = require('mongoose');
 const connection = require("./Config/db");
 let jwt = require("jsonwebtoken");
 const userController = require("./Controllers/user.routes");
@@ -9,6 +10,7 @@ require("dotenv").config();
 const passport = require("./Config/google_auth");
 const projectController = require("./Controllers/project.routes");
 const taskController = require("./Controllers/task.routes");
+
 
 const app = express();
 app.use(cors());
@@ -48,7 +50,7 @@ app.listen(process.env.PORT, async () => {
   try {
     mongoose.set('strictQuery', false);
     await connection;
-    console.log("Database Connected!");
+    console.log("Database Connected Successfully!");
   } catch (err) {
     console.log("Database Connection Error:",err);
   }
