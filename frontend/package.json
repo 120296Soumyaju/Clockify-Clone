@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite --host",
+    "start": "NODE_OPTIONS=--max-old-space-size=256 vite --host",
     "build": "vite build",
     "preview": "vite preview"
   },
