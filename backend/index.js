@@ -46,6 +46,7 @@ app.use("/tasks", taskController);
 
 app.listen(process.env.PORT, async () => {
   try {
+    mongoose.set('strictQuery', false);
     await connection;
     console.log("Database Connected!");
   } catch (err) {
