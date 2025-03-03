@@ -1,3 +1,4 @@
+const PORT = process.env.PORT || 3000; // Use default if not provided
 const express = require("express");
 const connection = require("./Config/db");
 let jwt = require("jsonwebtoken");
